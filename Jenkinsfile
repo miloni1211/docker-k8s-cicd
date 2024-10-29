@@ -25,7 +25,7 @@ pipeline {
                         cp -R src/main/webapp/* build-output/
                         cp -R src/main/webapp/META-INF build-output/
                         cp src/main/webapp/Dockerfile build-output/
-                        cp -R src/main/webapp/HW1-part2 build-output/
+                        cp -R src/main/webapp/HW1-Part2.html build-output/
                     """
                 }
             }
