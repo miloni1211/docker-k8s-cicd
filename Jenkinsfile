@@ -16,10 +16,18 @@ pipeline {
         
         stage('Build') {
             steps {
-                // Clean the workspace and compile your code
-                sh 'mvn clean install'
-                // If you have a packaging command, use it here. If not, comment out or remove this line
-                // sh 'mvn package'
+                script {
+                    // Create an output directory for deployment
+                    sh """
+                        mkdir -p build-output
+
+                        # Copy all necessary files and directories to the build output directory
+                        cp -R src/main/webapp/* build-output/
+                        cp -R src/main/webapp/META-INF build-output/
+                        cp src/main/webapp/Dockerfile build-output/
+                        cp -R src/main/webapp/HW1-part2 build-output/
+                    """
+                }
             }
         }
         
