@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         // Replace 'my-dockerhub-password-id' with the ID of your DockerHub password credential in Jenkins
-        DOCKERHUB_PASSWORD = credentials('Password@12345')
+        DOCKERHUB_PASSWORD = credentials('20dced42-859d-4481-a508-cd17194a246e')
         // This sets a timestamp in the format "YYYYMMDD-HHMMSS" for tagging Docker images
         TIMESTAMP = new Date().format("20241029-052500")
     }
