@@ -35,7 +35,7 @@ pipeline {
             steps {
                 // Login to DockerHub using the credentials stored in Jenkins
                 // Replace 'mydockeruser' with your actual DockerHub username
-                sh 'echo $DOCKERHUB_PASSWORD | docker login -u mshah32 --password-stdin'
+                sh 'echo $DOCKERHUB_PASSWORD | docker login -u mshah32@gmu.edu --password-stdin'
                 
                 // Tag the Docker image with the generated timestamp
                 // Replace 'myapp' with your actual DockerHub repository/image name
