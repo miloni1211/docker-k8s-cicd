@@ -1,16 +1,12 @@
 // Kalyani, Miloni, Kashish
-// This is a Jenkins file which includes scripts for image building and uploading the image to docker hub. The last step is to deploy it on rancher
+// This is a Jenkins file, This file includes scripts for image building and uploading to docker hub and then deploying on rancher
 pipeline {
     agent any
     environment {
         DOCKERHUB_CREDENTIALS = credentials('20dced42-859d-4481-a508-cd17194a246e')
     }
     stages {
-<<<<<<< HEAD
         stage('Timestamp') {
-=======
-        stage('Time Stamp') {
->>>>>>> 8067827ecf535705ef87b6f1da8497928f705e99
             steps {
                 script {
                     // Defining a build timestamp variable
@@ -21,11 +17,7 @@ pipeline {
         }
 
 
-<<<<<<< HEAD
         stage('Build docker image') {
-=======
-        stage('Docker Image Building') {
->>>>>>> 8067827ecf535705ef87b6f1da8497928f705e99
             steps {
                 script {
                     
@@ -47,11 +39,7 @@ pipeline {
         }
         
 
-<<<<<<< HEAD
         stage('Push Image') {
-=======
-        stage('Pushing Image to DockerHub') {
->>>>>>> 8067827ecf535705ef87b6f1da8497928f705e99
             steps {
                 script {
                     sh "docker push ${env.IMAGE_NAME}"
@@ -59,11 +47,7 @@ pipeline {
             }
         }
 
-<<<<<<< HEAD
         stage('Deployment') {
-=======
-        stage('Rancher Deploy') {
->>>>>>> 8067827ecf535705ef87b6f1da8497928f705e99
             steps {
                 script {
                     sh "kubectl set image deployment/mshah32-deployment01 container-0=${env.IMAGE_NAME}"
