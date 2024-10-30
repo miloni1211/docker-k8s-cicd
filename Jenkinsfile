@@ -31,7 +31,7 @@ pipeline {
                     }
 
                     def imageName = "mshah32/img:${env.BUILD_TIMESTAMP}"
-                    sh "docker build -t ${imageName} -f src/main/webapp/Dockerfile . "
+                    sh "docker build -t ${imageName} -f src/main/webapp/Dockerfile ."
 
                     env.IMAGE_NAME = imageName
                 }
