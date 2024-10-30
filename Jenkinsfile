@@ -6,7 +6,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('20dced42-859d-4481-a508-cd17194a246e')
     }
     stages {
-        stage('Timestamping') {
+        stage('Timestamp') {
             steps {
                 script {
                     // Defining a build timestamp variable
@@ -17,7 +17,7 @@ pipeline {
         }
 
 
-        stage('Building a docker image') {
+        stage('Build docker image') {
             steps {
                 script {
                     
@@ -39,7 +39,7 @@ pipeline {
         }
         
 
-        stage('Push Image to DockerHub') {
+        stage('Push Image') {
             steps {
                 script {
                     sh "docker push ${env.IMAGE_NAME}"
@@ -47,7 +47,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Rancher') {
+        stage('Deployment') {
             steps {
                 script {
                     sh "kubectl set image deployment/mshah32-deployment01 container-0=${env.IMAGE_NAME}"
