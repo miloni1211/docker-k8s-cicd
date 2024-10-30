@@ -30,7 +30,7 @@ pipeline {
                         """
                     }
 
-                    def imageName = "mshah32/survey:${env.BUILD_TIMESTAMP}"
+                    def imageName = "mshah32/img:${env.BUILD_TIMESTAMP}"
                     sh "docker build -t ${imageName} ."
 
                     env.IMAGE_NAME = imageName
